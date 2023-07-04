@@ -50,4 +50,14 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const campus = await Campus.findByPk(req.params.id);
+    campus ? await campus.destroy() : res.status(404).send("Campus Not Found");
+    res.status(204).send("Campus Deleted");
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
