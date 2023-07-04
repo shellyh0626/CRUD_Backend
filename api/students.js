@@ -15,4 +15,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// Root here is localhost:8080/api/students/
+router.post("/", async (req, res, next) => {
+  try {
+    const newStudent = await Student.create(req.body);
+    newStudent
+      ? res.status(201).json(newStudent)
+      : res.status(404).send("Student Not Created");
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
