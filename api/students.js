@@ -15,6 +15,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/campus/:id", async (req, res, next) => {
+  try {
+    const students = await Student.findAll({
+      where: {
+        campusId: req.params.campusId,
+      },
+    });
+    students
+      ? res.status(200).json(students)
+      : res.status(404).send("Students Not Found");
+  } catch (error) {
+    next(error);
+  }
+});
+
 // Root here is localhost:8080/api/students/
 router.post("/", async (req, res, next) => {
   try {
