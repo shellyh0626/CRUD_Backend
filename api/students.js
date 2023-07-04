@@ -65,4 +65,16 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const student = await Student.findByPk(req.params.id);
+    student
+      ? await student.destroy()
+      : res.status(404).send("Student Not Found");
+    res.status(204).send("Student Deleted");
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
