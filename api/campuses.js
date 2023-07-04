@@ -15,4 +15,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// Root here is localhost:8080/api/campuses/
+router.post("/", async (req, res, next) => {
+  try {
+    const newCampus = await Campus.create(req.body);
+    newCampus
+      ? res.status(201).json(newCampus)
+      : res.status(404).send("Campus Not Created");
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
