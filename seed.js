@@ -2,7 +2,7 @@ const db = require("./db");
 const { Campus, Student } = require("./db/models");
 
 const tempStuImgUrl =
-  "https://cdn.landesa.org/wp-content/uploads/default-user-image.png";
+  "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
 
 //Top 3 U.S News College dummy data
 const seedCampuses = [
