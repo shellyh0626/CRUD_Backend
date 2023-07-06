@@ -33,6 +33,8 @@ router.get("/campus/:id", async (req, res, next) => {
 // Root here is localhost:8080/api/students/
 router.post("/", async (req, res, next) => {
   try {
+    req.body.campusId = parseInt(req.body.campusId);
+    req.body.gpa = parseFloat(req.body.gpa);
     const newStudent = await Student.create(req.body);
     newStudent
       ? res.status(201).json(newStudent)
