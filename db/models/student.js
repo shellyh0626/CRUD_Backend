@@ -30,10 +30,6 @@ const Student = db.define("student", {
       max: 4.0,
     },
   },
-  campusId: {
-    type: DataTypes.INTEGER,
-    defaultValue: null,
-  },
 });
 
 module.exports = Student;
