@@ -17,6 +17,7 @@ router.get("/", async (req, res, next) => {
 
 // Root here is localhost:8080/api/campuses/
 router.post("/", async (req, res, next) => {
+  console.log(req.body);
   try {
     const newCampus = await Campus.create(req.body);
     newCampus
