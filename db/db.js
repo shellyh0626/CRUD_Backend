@@ -1,5 +1,6 @@
 const { Sequelize } = require("sequelize");
-const { Pool } = require("pg");
+const {Pool} = require("pg");
+require("dotenv").config();
 // const { name } = require("../package.json");
 
 //Passing a connection URI
